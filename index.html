@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ramadan Workshop Schedule - February 7th</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --burgundy: #722F37;
+            --cream: #FDFCFA;
+            --charcoal: #2D2D2D;
+            --slate: #4A5568;
+            --light-gray: #F0F0F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3a5c 100%);
+            color: white;
+            padding: 40px 24px 35px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(26, 39, 68, 0.3);
+        }
+
+        .header-date {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 20px 16px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .section-time {
+            background: var(--navy);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .section-time.break { background: var(--navy); }
+        .section-time.breakout { background: var(--burgundy); }
+        .section-time.closing { background: var(--navy); }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: var(--slate);
+            margin-left: auto;
+        }
+
+        /* Schedule Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--navy);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .card:nth-child(even) {
+            border-left-color: var(--burgundy);
+        }
+
+        .card-time {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .card-speaker {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--navy);
+            display: inline;
+        }
+
+        .card-separator {
+            color: var(--slate);
+            margin: 0 6px;
+        }
+
+        .card-topic {
+            font-size: 15px;
+            color: var(--charcoal);
+            display: inline;
+        }
+
+        .card-event {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* Breakout Section */
+        .breakout-intro {
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(114, 47, 55, 0.1) 0%, rgba(26, 39, 68, 0.1) 100%);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .breakout-intro-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        .track {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .track-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--light-gray);
+        }
+
+        .track.brothers .track-header { border-top: 6px solid var(--navy); }
+        .track.youth .track-header { border-top: 6px solid var(--burgundy); }
+        .track.sisters .track-header { border-top: 6px solid var(--navy); }
+
+        .track-option {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 6px;
+        }
+
+        .track-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .track.brothers .track-title { color: var(--navy); }
+        .track.youth .track-title { color: var(--burgundy); }
+        .track.sisters .track-title { color: var(--navy); }
+
+        .track-subtitle {
+            font-size: 14px;
+            color: var(--slate);
+        }
+
+        .track-content {
+            padding: 8px 20px 20px;
+        }
+
+        .track-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .track-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .track-item-time {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .track.brothers .track-item-time { color: var(--navy); }
+        .track.youth .track-item-time { color: var(--burgundy); }
+        .track.sisters .track-item-time { color: var(--navy); }
+
+        .track-item-speaker {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .track-item-topic {
+            font-size: 15px;
+            color: var(--charcoal);
+        }
+
+        /* Placeholder */
+        .placeholder {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--slate);
+        }
+
+        .placeholder-text {
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .placeholder-slots {
+            font-size: 13px;
+            line-height: 1.8;
+            opacity: 0.7;
+        }
+
+        /* Timeline */
+        .timeline-card {
+            background: white;
+            border-radius: 12px;
+            padding: 8px 0;
+            border-left: 5px solid var(--navy);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-row {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .timeline-row:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+            width: 110px;
+            flex-shrink: 0;
+        }
+
+        .timeline-event {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .timeline-subtext {
+            font-size: 13px;
+            color: var(--slate);
+            font-weight: 400;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--light-gray);
+            padding: 30px 24px;
+            text-align: center;
+        }
+
+        .footer-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .footer-logos img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .footer-x {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--navy);
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(26, 39, 68, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <p class="header-date">Saturday, February 7th</p>
+        <h1 class="header-title">Ramadan Workshop</h1>
+        <p class="header-subtitle">Preparation Event Schedule</p>
+    </header>
+
+    <main class="content">
+        <!-- Main Session -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-time">4:00 – 5:00 PM</span>
+                <h2 class="section-title">Main Session</h2>
+            </div>
+
+            <div class="card">
+                <p class="card-time">4:00 – 4:10 PM</p>
+                <p class="card-event">Quran Recitation & Introductions</p>
+            </div>
+
+            <div class="card">
+                <p class="card-time">4:10 – 4:20 PM</p>
+                <p><span class="card-speaker">Sheikh Al-Ghobashy</span><span class="card-separator">—</span><span class="card-topic">Spirituality & Preparing for Ramadan</span></p>
+            </div>
+
+            <div class="card">
+                <p class="card-time">4:20 – 4:35 PM</p>
+                <p><span class="card-speaker">Sheikh Abdullah</span><span class="card-separator">—</span><span class="card-topic">The Importance of Quran in Ramadan</span></p>
+            </div>
+
+            <div class="card">
+                <p class="card-time">4:35 – 4:50 PM</p>
+                <p><span class="card-speaker">Sheikh Munsif</span><span class="card-separator">—</span><span class="card-topic">Psychological Benefits of Fasting & Resilience</span></p>
+            </div>
+
+            <div class="card">
+                <p class="card-time">4:50 – 5:00 PM</p>
+                <p><span class="card-speaker">Sheikh Abdul Rashid</span><span class="card-separator">—</span><span class="card-topic">Common Mistakes & Maximizing Your Time</span></p>
+            </div>
+        </section>
+
+        <!-- Break & Prayer -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-time break">5:00 – 5:45 PM</span>
+                <h2 class="section-title">Break & Prayer</h2>
+            </div>
+
+            <div class="card">
+                <p class="card-time">5:00 – 5:15 PM</p>
+                <p class="card-event">Refreshment Break — Coffee & Snacks</p>
+            </div>
+
+            <div class="card">
+                <p class="card-time">5:15 – 5:45 PM</p>
+                <p class="card-event">Maghrib Prayer & Sunnah</p>
+            </div>
+        </section>
+
+        <!-- Breakout Sessions -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-time breakout">5:45 – 7:15 PM</span>
+                <h2 class="section-title">Breakout Sessions</h2>
+            </div>
+
+            <div class="breakout-intro">
+                <p class="breakout-intro-text">Choose Your Track</p>
+            </div>
+
+            <!-- Brothers Track -->
+            <div class="track brothers">
+                <div class="track-header">
+                    <p class="track-option">Option A</p>
+                    <h3 class="track-title">Brothers</h3>
+                </div>
+                <div class="track-content">
+                    <div class="track-item">
+                        <p class="track-item-time">5:45 – 6:05 PM</p>
+                        <p class="track-item-topic">Health, Diet & Fitness Panel</p>
+                    </div>
+                    <div class="track-item">
+                        <p class="track-item-time">6:05 – 6:25 PM</p>
+                        <p><span class="track-item-speaker">Sheikh Munsif —</span> <span class="track-item-topic">Mental Well-being & Resilience</span></p>
+                    </div>
+                    <div class="track-item">
+                        <p class="track-item-time">6:25 – 6:45 PM</p>
+                        <p><span class="track-item-speaker">Sheikh Uthman —</span> <span class="track-item-topic">Goal Setting for Ramadan</span></p>
+                    </div>
+                    <div class="track-item">
+                        <p class="track-item-time">6:45 – 7:15 PM</p>
+                        <p class="track-item-topic">Q&A Panel (All Speakers)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Youth Track -->
+            <div class="track youth">
+                <div class="track-header">
+                    <p class="track-option">Option B</p>
+                    <h3 class="track-title">Youth</h3>
+                    <p class="track-subtitle">High School & College</p>
+                </div>
+                <div class="track-content">
+                    <div class="track-item">
+                        <p class="track-item-time">5:45 – 6:15 PM</p>
+                        <p><span class="track-item-speaker">Sheikh Abdul Rashid —</span> <span class="track-item-topic">School, Family & Islam</span></p>
+                    </div>
+                    <div class="track-item">
+                        <p class="track-item-time">6:15 – 6:45 PM</p>
+                        <p class="track-item-topic">Interactive Activity</p>
+                    </div>
+                    <div class="track-item">
+                        <p class="track-item-time">6:45 – 7:15 PM</p>
+                        <p class="track-item-topic">Youth Advice & Q&A Panel</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sisters Track -->
+            <div class="track sisters">
+                <div class="track-header">
+                    <p class="track-option">Option C</p>
+                    <h3 class="track-title">Sisters</h3>
+                </div>
+                <div class="placeholder">
+                    <p class="placeholder-text">Session details coming soon</p>
+                    <p class="placeholder-slots">
+                        5:45 – 6:15 PM: [Speaker & Topic]<br>
+                        6:15 – 6:45 PM: [Speaker & Topic]<br>
+                        6:45 – 7:15 PM: [Q&A Panel]
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Program -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-time closing">7:15 PM – End</span>
+                <h2 class="section-title">Closing Program</h2>
+            </div>
+
+            <div class="timeline-card">
+                <div class="timeline-row">
+                    <span class="timeline-time">7:15 – 7:30 PM</span>
+                    <span class="timeline-event">Brothers Q&A</span>
+                </div>
+                <div class="timeline-row">
+                    <span class="timeline-time">7:30 – 7:55 PM</span>
+                    <span class="timeline-event">Closing Remarks & Collective Dua</span>
+                </div>
+                <div class="timeline-row">
+                    <span class="timeline-time">7:55 PM</span>
+                    <span class="timeline-event">Adhan for Isha</span>
+                </div>
+                <div class="timeline-row">
+                    <span class="timeline-time">8:00 PM</span>
+                    <span class="timeline-event">Isha Prayer <span class="timeline-subtext">— followed by food box distribution</span></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-label">A Collaboration Between</p>
+        <div class="footer-logos">
+            <img src="./magr-logo.png" alt="MAGR">
+            <span class="footer-x">x</span>
+            <img src="./sahwah-logo.png" alt="Sahwah">
+        </div>
+    </footer>
+
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+    <script>
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', () => {
+            const btn = document.querySelector('.scroll-top');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
